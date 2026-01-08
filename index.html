@@ -133,6 +133,56 @@
         // Start typing
         setTimeout(typeForward, typingSpeed);
     });
+
+    // Project filter:
+    document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".filter");
+        const projects = document.querySelectorAll(".project-item");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const filter = button.dataset.filter;
+
+                // Update active state
+                filterButtons.forEach(b => b.classList.remove("active"));
+                button.classList.add("active");
+
+                projects.forEach(project => {
+                    const tags = project.dataset.tags.split(" ");
+
+                    if (filter === "all" || tags.includes(filter)) {
+                        project.style.display = "block";
+                    } else {
+                        project.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const blocks = document.querySelectorAll(".timeline-block");
+        const detail = document.getElementById("resumeDetail");
+
+        blocks.forEach(block => {
+            block.addEventListener("mouseenter", () => {
+                const title = block.dataset.title;
+                const description = block.dataset.description;
+                const learned = block.dataset.learned;
+
+                detail.innerHTML = `
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <h4>What I learned</h4>
+        <ul>
+          ${learned.split(",").map(item => `<li>${item.trim()}</li>`).join("")}
+        </ul>
+      `;
+            });
+        });
+    });
+
+
 </script>
 
 
@@ -156,9 +206,9 @@
     </div>
     <br>
     <div class="content">
-        <a class="navLink active" href="">About Me</a>
-        <a class="navLink" href="">My Resume</a>
-        <a class="navLink" href="">Projects</a>
+        <a class="navLink active" href="#about">About Me</a>
+        <a class="navLink" href="#resume">My Resume</a>
+        <a class="navLink" href="#prpjects">Projects</a>
     </div>
 
     <div class="wrapper">
@@ -170,28 +220,71 @@
                     alt="Me">
                 <p class="ProfileText">I consider myself a man of many talents, having worked in varying environments
                     and industries, such as fast food and security system installation alongside IT.
-                    In my free time, I like to pactice HEMA (historical European martial arts) and spend time with
+                    In my free time, I like to practice HEMA (historical European martial arts) and spend time with
                     friends and family. Lately I've been very interested in literature and creative writing,
                     and therfore consider both of them as fields of later studies.</p>
             </div>
         </section>
-        <section class="card">
-            <div>
+        <section class="card resume">
                 <h2>My Resume</h2>
-            </div>
+                <div class="resume-layout">
+                    <section class="timeline">
+
+                        <div class="year-label" style="--year: 2023">2023</div>
+                        <div class="year-label" style="--year: 2024">2024</div>
+                        <div class="year-label" style="--year: 2025">2025</div>
+                        <div class="year-label" style="--year: 2026">2026</div>
+
+
+                        <div class="timeline-block work" style="--start: 2023.25; --end: 2023.5;"
+                            data-title="Restaurant assistant at Kotipizza Oyj."
+                            data-description="I worked as a summer trainee/assistant here before beginning my studies in software development, at the very least it taught me how rough fast food work actually is."
+                            data-learned="Dealing with difficult people, working with money, the importance of hygiene, working under pressure">
+                            <h4>Restaurant assistant - Kotipizza Oyj</h4>
+                        </div>
+
+                        <div class="timeline-block education" style="--start: 2023.75; --end: 2026.5;"
+                            data-title="Dual Degree in Software Development + A-level (ongoing)"
+                            data-description="Frontend and fullstack development, systems thinking, algorithms, teamwork, and long-term project work."
+                            data-learned="HTML, CSS, JavaScript, React, software architecture, documentation, problem-solving">
+                            <h3>Dual degree in Software Development + A-level - Tampere Vocational College Tredu & High
+                                School
+                                of Technology (ongoing)</h3>
+                        </div>
+
+                        <div class="timeline-block work" style="--start: 2024.75; --end: 2025;">
+                            <h4>Internship - Missing-Link Oy</h4>
+                        </div>
+
+                        <div class="timeline-block work" style="--start: 2025.5; --end: 2025.75;">
+                            <h4>Security system installer - SmartLoq Oy</h4>
+                        </div>
+
+                    </section>
+
+                    <aside class="resume-detail" id="resumeDetail">
+                        <h3>Hover an entry</h3>
+                        <p>Select a timeline item to see details.</p>
+                    </aside>
+                </div>
+
         </section>
         <section class="card">
             <h2>Projects</h2>
             <ul class="filters">
-                <li>All</li>
-                <li>Fullstack/Web</li>
-                <li>Game</li>
-                <li>C#</li>
-                <li>React</li>
-                <li>PHP</li>
+                <li><button class="filter active" data-filter="all">All</button></li>
+                <li><button class="filter" data-filter="web">Fullstack / Web</button></li>
+                <li><button class="filter" data-filter="js">JS</button></li>
+                <li><button class="filter" data-filter="db">Database</button></li>
+                <li><button class="filter" data-filter="php">PHP</button></li>
+                <li><button class="filter" data-filter="react">React</button></li>
+                <li><button class="filter" data-filter="csharp">C#</button></li>
+                <li><button class="filter" data-filter="game">Game</button></li>
+
             </ul>
+
             <div class="projects">
-                <div class="project-item">
+                <div class="project-item" data-tags="web react js">
                     <h3>Example</h3>
                     <p>A short description.</p>
                     <a href="">View this project</a>
@@ -201,7 +294,8 @@
                         <li>JS</li>
                     </ul>
                 </div>
-                <div class="project-item">
+
+                <div class="project-item" data-tags="web react js">
                     <h3>Example</h3>
                     <p>A short description.</p>
                     <a href="">View this project</a>
@@ -211,7 +305,8 @@
                         <li>JS</li>
                     </ul>
                 </div>
-                <div class="project-item">
+
+                <div class="project-item" data-tags="web react js">
                     <h3>Example</h3>
                     <p>A short description.</p>
                     <a href="">View this project</a>
@@ -221,6 +316,7 @@
                         <li>JS</li>
                     </ul>
                 </div>
+
             </div>
         </section>
     </div>

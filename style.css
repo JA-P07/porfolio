@@ -1,14 +1,15 @@
 body {
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(to bottom, #00385e 0%, rgb(0, 22, 37) 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    font-family: "Atkinson Hyperlegible Next", sans-serif;
-    ul{
-      list-style-type: none;
-    }
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom, #00385e 0%, rgb(0, 22, 37) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+
+  ul {
+    list-style-type: none;
+  }
 }
 
 h1,
@@ -16,131 +17,143 @@ h2,
 h3,
 h4,
 h5 {
-    letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
 }
 
 nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    margin: 30px;
-    color: whitesmoke;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 30px;
+  color: whitesmoke;
 
-    h4 {
-        font-weight: 800;
+  h4 {
+    font-weight: 800;
 
-        hr {
-            text-align: left;
-            margin-top: -10px;
-            margin-bottom: -2px;
-            color: whitesmoke;
-            max-width: 10%;
-        }
+    hr {
+      text-align: left;
+      margin-top: -10px;
+      margin-bottom: -2px;
+      color: whitesmoke;
+      max-width: 10%;
     }
+  }
 }
 
 #typewriter {
-    border-right: 2px solid whitesmoke;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
+  border-right: 2px solid whitesmoke;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+@keyframes blink {
+
+  0%,
+  50%,
+  100% {
+    border-color: whitesmoke;
   }
-  
-  @keyframes blink {
-    0%,50%,100% { border-color: whitesmoke; }
-    25%,75% { border-color: transparent; }
+
+  25%,
+  75% {
+    border-color: transparent;
   }
-  
-  #typewriter {
-    animation: blink 1s infinite;
-  }
+}
+
+#typewriter {
+  animation: blink 1s infinite;
+}
 
 .links {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 
-    a {
-        color: whitesmoke;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
+  a {
+    color: whitesmoke;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
 
 .active,
 .navLink:hover,
 .TopLink:hover {
-    color: rgb(131, 131, 131) !important;
+  color: rgb(131, 131, 131) !important;
 }
 
 .heroText {
-    size: 50px;
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    color: whitesmoke;
-    font-family: "Atkinson Hyperlegible Next", sans-serif;
+  size: 50px;
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  color: whitesmoke;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
 
-    h4 {
-        margin-bottom: -10px;
-    }
+  h4 {
+    margin-bottom: -10px;
+  }
 }
 
 .content {
-    display: flex;
-    flex-direction: row;
-    color: whitesmoke;
-    position: absolute;
-    left: 20%;
-    top: 35%;
+  display: flex;
+  flex-direction: row;
+  color: whitesmoke;
+  position: absolute;
+  left: 20%;
+  top: 35%;
 
-    a {
-        color: whitesmoke;
-        margin-right: 1.5rem;
-    }
+  a {
+    color: whitesmoke;
+    margin-right: 1.5rem;
+  }
 }
 
 .wrapper {
-    position: absolute;
-    margin: 0 auto;
-    max-height: 100vh;
-    width: 70%;
-    left: 18%;
-    top: 40%;
-    display: flex;
-    flex-direction: column;
+  position: absolute;
+  margin: 0 auto;
+  max-height: 100vh;
+  width: 70%;
+  left: 18%;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
-    color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.308);
-    border-radius: 25px 25px 0px 0px;
-    padding: 20px;
-    margin: 20px;
-    display: none;
-    overflow-y: auto;
-    height: 55vh;
-    scrollbar-width: none;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.308);
+  border-radius: 25px 25px 0px 0px;
+  padding: 20px;
+  margin: 20px;
+  display: none;
+  overflow-y: auto;
+  height: 55vh;
+  scrollbar-width: none;
 }
 
 .current {
   display: block;
 }
 
-.about{
+.resume{
+  overflow: hidden;
 }
 
-.facePic{
+.about {}
+
+.facePic {
   position: absolute;
   right: 0;
   margin-right: 5%;
   max-height: 90%;
 }
 
-.ProfileText{
+.ProfileText {
   justify-self: center;
   align-self: center;
   font-size: large;
@@ -149,22 +162,119 @@ nav {
   margin: 20px;
 }
 
-.resume{
-
+.resume-card {
+  height: 55vh;
+  overflow: hidden;
 }
 
-.projects{
+
+.timeline {
+  position: relative;
+  padding-left: 100px;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: whitesmoke;
+}
+
+.timeline::after {
+  content: "";
+  display: block;
+  height: 100px; /* breathing room at bottom */
+}
+
+.timeline-block {
+  position: absolute;
+  left: 80px;
+  width: 70%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  border-left: 4px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  top: calc((var(--start) - 2023) * 150px);
+  height: calc((var(--end) - var(--start)) * 150px);
+}
+
+.year-label {
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: whitesmoke;
+
+  top: calc((var(--year) - 2023) * 150px);
+}
+
+.timeline-block.education {
+  background: rgba(0, 150, 255, 0.15);
+  border-color: #5fb3ff;
+}
+
+.timeline-block.work {
+  background: rgba(255, 180, 0, 0.15);
+  border-color: #ffcc66;
+}
+
+.timeline-block h3,
+.timeline-block h4 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.timeline-block p {
+  margin: 0;
+}
+
+.timeline-block:hover {
+  outline: 2px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+}
+
+.resume-layout {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr;
+  gap: clamp(16px, 3vw, 32px);
+  height: 100%; 
+  overflow-y: hidden;
+}
+
+
+.resume-detail {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  min-height: 200px;
+}
+
+.resume-detail h3 {
+  margin-top: 0;
+}
+
+.projects {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-around;
 }
 
-.filters{
+.filters {
   display: grid;
   grid-template-columns: auto auto auto auto;
   justify-content: space-around;
   align-items: center;
-  li{
+
+  li {
     padding: 10px;
     border-radius: 30px;
     border: 2px solid white;
@@ -175,7 +285,20 @@ nav {
   }
 }
 
-.project-item{
+.filter {
+  background: transparent;
+  color: whitesmoke;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.filter.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.project-item {
   background-color: rgba(245, 245, 245, 0.1);
   border-radius: 25px;
   border: 2px solid white;
@@ -185,19 +308,19 @@ nav {
   height: 25vh
 }
 
-.taglist{
+.taglist {
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: space-evenly;
 }
 
 footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    bottom: 0;
-    position: absolute;
-    margin: 30px;
-    color: whitesmoke;
-    font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  bottom: 0;
+  position: absolute;
+  margin: 30px;
+  color: whitesmoke;
+  font-weight: 800;
 }
